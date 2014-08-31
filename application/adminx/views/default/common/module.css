@@ -1,0 +1,102 @@
+
+
+/** index/login **/
+
+body{background:#5bc0de;}
+
+.mainbox{position:relative;}
+.left{background:#428bca; position:fixed; left:0; top:0; bottom:0; right:75%;}
+
+.lgbox{position:fixed; left:30%; top:25%; right:30%;}
+
+.viewcode{cursor:pointer;}
+
+/** end **/
+
+
+/** index/center **/
+.nav{height:44px; background:#e7e7e7; border-bottom:0px solid #e7e7e7; position:relative;}
+.nav-box{background:#f8f8f8; height:40px; margin:2px 0;}
+.logo{position:absolute; left:0; top:0; width:180px; line-height:40px; text-align:center;}
+.menu{float:left; margin-left:180px; padding:0; margin-bottom:0;}
+.menu .mli{list-style:none; float:left; line-height:40px;}
+.menu .mli a{line-height:40px; display:inline-block; padding:0 17px; color:#454545; outline:none;}
+.menu .active, .menu .mli a:hover{background:#e7e7e7;}
+
+.nav-right{float:right;}
+.nav-right ul{line-height:40px; margin:0; padding:0;}
+.nav-right ul li{list-style:none;}
+
+.dropdown-menu{padding:5px 0 !important;}
+
+.submenu{position:fixed; left:0; width:180px; bottom:0; top:44px; background:#f8f8f8; border-right:1px solid #e7e7e7; overflow:auto;}
+.submenu ul{padding:0; margin:0;}
+.submenu ul li{display:none;}
+.submenu ul li span{display:block; margin:1px 0 1px; line-height:28px; text-indent:1.5em; border-bottom:1px solid #e7e7e7;}
+.submenu ul li span a{display:block; color:#454545; outline:none;}
+.submenu .active a, .submenu ul li span a:hover{background:#e7e7e7 !important;}
+.m2{line-height:40px; display:block; padding:0px 11px;}
+
+.content{position:fixed; right:0; top:44px; bottom:0; left:180px; background:#fefefe; overflow:auto;}
+.main{width:100%; height:100%;}
+
+/** end **/
+
+
+/** food/recipe **/
+/*
+	Name:			monzila
+	Level:			global
+	Explain:		tags的样式	
+	Author:			xiaoan
+	Example:		<div class="tags clearfix"><span>食材1<a href="#">×</a></span><span>食材1<a href="#">×</a></span><span>食材1<a href="#">×</a></span></div>
+*/
+.tags{}
+.tags span{float:left; position:relative; line-height:26px; background:#dff0d8; border-radius:2px; padding:0 24px 0 7px; margin:7px 13px 0 0;}
+.tags span:hover{background:#d9edf7;}
+.tags span a{position:absolute; right:7px; font-size:15px;}
+
+.ymoretab{}
+.ymoretab ul{position:relative; overflow:hidden; padding:0; margin:0;}
+.ymoretab ul li{float:left; cursor:pointer; list-style:none;}
+.ymoretab ul li{padding:0 8px; line-height:34px; border:1px solid #ccc; border-radius:3px 3px 0 0; margin-right:5px; position:relative; top:1px; z-index:99;}
+.ymoretab ul li.cur{background:#ccc;}
+.ymoretab .sbox{border:1px solid #ccc;}
+.ymoretab .stitle{line-height:36px;}
+.ymoretab .stitle span{line-height:22px; padding:0px 13px; cursor:pointer;}
+.ymoretab .stitle span.cur{font-weight:600; font-size:16px;}
+.ymoretab .slist{line-height:21px; padding-bottom:11px;}
+.ymoretab .slist span{margin:2px 7px; padding:1px 4px; line-height:20px; border:1px solid #dff0d8; float:left; cursor:pointer;}
+.ymoretab .slist span.cur{border-color:#1469e9;}
+
+/** end **/
+
+
+/** mgr/product,mgr/coupon,mgr/activity,mgr/dealer **/
+
+.multcheckbox{position:relative; z-index:99; height:160px; overflow-y:scroll; border:1px solid #ccc; border-radius: 4px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset; padding:2px 4px;}
+.level-1{color:#428bca;}
+.level-2{padding-left:5px;}
+.level-3{padding-left:10px;}
+.mult-input{display:inline-block; width:60px; border-radius: 2px; font-size: 12px; height: 20px; line-height: 1.0; padding: 0px 5px;}
+.col-lg-3{width:300px; float:left;}
+.col-lg-6{width:360px; float:left;}
+
+.timeerpick{width:185px; float:left;}
+
+/** end **/
+
+
+/** mgr/coupon,mgr/dealer,order/latest **/
+.left-5{float:left; width:160px; margin-right:10px;}
+/** end **/
+
+/** mgr/dealer **/
+.hi{}
+.hi .btn{margin-right:5px; margin-bottom:4px;}
+/** end **/
+
+/** order **/
+.multcheckbox{height:160px; overflow-y:scroll; border:1px solid #ccc; border-radius: 4px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset; padding:2px 4px; margin-top:8px; margin-bottom:8px;}
+/** end **/
+

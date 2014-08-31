@@ -1,0 +1,6 @@
+.nav-fixed{position:fixed; left:0; top:0; right:0px; height:35px; background:#f8f8f8; margin-left:5px;}
+.nav-fixed li{height:35px;}
+.nav-fixed li a{padding:0 10px; line-height:33px; outline:none;}
+.tab-content{margin-top:45px;}
+.nav li.nav-right{position:fixed; right:10px; height:33px; line-height:33px;}
+.nav li.nav-right span{margin-left:7px; cursor:pointer;}

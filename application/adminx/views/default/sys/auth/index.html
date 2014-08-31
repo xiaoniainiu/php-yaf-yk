@@ -1,0 +1,111 @@
+{subtemplate common/head_common.html}
+<!-- Nav tabs -->
+<ul class="nav nav-tabs nav-fixed" role="tablist" id="tabMember">
+  <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+  <li><a href="#add" role="tab" data-toggle="tab">Add</a></li>
+  <li class="nav-right">
+  	<span class="glyphicon glyphicon-refresh" id="page-refresh"></span>
+    <span class="glyphicon glyphicon-circle-arrow-up" id="page-top"></span>
+  </li>
+</ul>
+
+<input type="hidden" value="{G _formhash}" id="formhash" />
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+  	<h3>权限列表</h3>
+  	<table class="table table-hover table-condensed" id="tableMember">
+        <tr><th>#</th><th>名称</th><th>URL</th><th>查</th><th>更</th><th>增</th><th>删</th><th></th></tr>
+        {loop $auth $row}
+        <tr><td>$row[id]</td>
+            <td>[$row[mname]]$row[name]</td>
+            <td>$row['auth']</td>
+            <td><input type="checkbox" value="$row[id]" name="sel" autocomplete="off" {if $row[sel]}checked="checked"{/if} disabled="disabled"/></td>
+            <td><input type="checkbox" value="$row[id]" name="upt" autocomplete="off" {if $row[upt]}checked="checked"{/if} disabled="disabled"/></td>
+            <td><input type="checkbox" value="$row[id]" name="ins" autocomplete="off" {if $row[ins]}checked="checked"{/if} disabled="disabled"/></td>
+            <td><input type="checkbox" value="$row[id]" name="del" autocomplete="off" {if $row[del]}checked="checked"{/if} disabled="disabled"/></td>
+            <td><code><a href="#" class="" data-type="upt" data-id="$row[id]">编辑</a></code> <code><a href="#" class="" data-type="del" data-id="$row[id]">删除</a></code></td>
+        </tr>
+        {/loop}
+    </table>
+  </div>
+  <div class="tab-pane" id="add">
+  		<h3>新增权限</h3>
+      <div class="form-group">
+        <label for="inputName">权限名称</label>
+        <input type="text" class="form-control" id="inputName" placeholder="Enter name" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="inputAuth">权限URI</label>
+        <input type="text" class="form-control" id="inputAuth" placeholder="Enter uri" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="inputMid">选择一个版块</label>
+      	<select class="form-control" id="inputMid">
+        	{loop $manage $name}
+            	<option value="$name['id']">$name['name']</option>
+            {/loop}
+       	</select>
+      </div>
+      <div class="form-group">
+        <label for="">权限范围</label>
+        <div class="form-group">
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inputAdd" value="add" checked="checked" autocomplete="off"> 增
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inputDel" value="del" checked="checked" autocomplete="off"> 删
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inputUpt" value="upt" checked="checked" autocomplete="off"> 改
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inputSel" value="sel" checked="checked" autocomplete="off"> 查
+            </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" id="buttonAddauth">新增权限</button>
+  </div>
+  <div class="tab-pane" id="upt">
+  		<h3>修改组</h3>
+        <input type="hidden" value="0" id="inputUptId" />
+       <div class="form-group">
+        <label for="inputUptName">权限名称</label>
+        <input type="text" class="form-control" id="inputUptName" placeholder="Enter name" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="inputAUptuth">权限URI</label>
+        <input type="text" class="form-control" id="inputAUptuth" placeholder="Enter uri" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="inputUptMid">选择一个版块</label>
+      	<select class="form-control" id="inputUptMid">
+        	{loop $manage $name}
+            	<option value="$name['id']">$name['name']</option>
+            {/loop}
+       	</select>
+      </div>
+      <div class="form-group">
+        <label for="">权限范围</label>
+        <div class="form-group">
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inputUptAdd" value="add" autocomplete="off"> 增
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inputUptDel" value="del" autocomplete="off"> 删
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inputUptUpt" value="upt" autocomplete="off"> 改
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inputUptSel" value="sel" autocomplete="off"> 查
+            </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" id="buttonUptAuth">更新权限</button>
+  </div>
+</div>
+{template common/js.html}
+<script type="text/javascript" src="/js/adminx/sys_auth.js"></script>
+{subtemplate common/foot_common.html}

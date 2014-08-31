@@ -1,0 +1,49 @@
+{subtemplate common/head_common.html}
+<!-- Nav tabs -->
+<ul class="nav nav-tabs nav-fixed" role="tablist" id="tabMember">
+  <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+  <li class="nav-right">
+  	<span class="glyphicon glyphicon-refresh" id="page-refresh"></span>
+    <span class="glyphicon glyphicon-circle-arrow-up" id="page-top"></span>
+  </li>
+</ul>
+
+<input type="hidden" value="{G _formhash}" id="formhash" />
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+  	<h3>评论列表</h3>
+  	<table class="table table-hover table-condensed" id="tableManage">
+        <tr><th>#</th><th>文章标题</th><th>评论内容</th><th>评论者</th><th>时间</th><th></th></tr>
+        {loop $data $row}
+        <tr>
+        	<td>$row[id]</td>
+            <td>$row[title]</td>
+            <td>$row[comm]</td>
+            <td>$row[uname]<br>{$row[uemail]}</td>
+            <td>$row[attime]</td>
+        	<td>{if $row[isdel] }
+            	已删除
+            	{else}
+            	<code><a href="#" class="" data-type="del" data-id="$row[id]">删除</a></code></td></tr>
+                {/if}
+        {/loop}
+    </table>
+    {if $page > 1}
+    <ul class="pagination">
+        {eval $pages = ypage($pi, $page);}
+        {loop $pages $p}
+            {if $pi != $p}
+            <li><a href="#" data-href="$url&pi=$p">$p</a></li>
+            {else}
+            <li class="active"><a href="#">$p</a></li>
+            {/if}
+        {/loop}
+    </ul>
+    {/if}
+  </div>
+</div>
+{template common/js.html}
+<script type="text/javascript" src="/js/adminx/yky_comment.js"></script>
+{subtemplate common/foot_common.html}

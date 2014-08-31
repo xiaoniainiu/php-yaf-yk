@@ -1,0 +1,48 @@
+{subtemplate common/head_common.html}
+<!-- Nav tabs -->
+<ul class="nav nav-tabs nav-fixed" role="tablist" id="tabMember">
+  <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+  <li><a href="#add" role="tab" data-toggle="tab">Add</a></li>
+  <li class="nav-right">
+  	<span class="glyphicon glyphicon-refresh" id="page-refresh"></span>
+    <span class="glyphicon glyphicon-circle-arrow-up" id="page-top"></span>
+  </li>
+</ul>
+
+<input type="hidden" value="{G _formhash}" id="formhash" />
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+  	<h3>后台版块列表</h3>
+  	<table class="table table-hover table-condensed" id="tableManage">
+        <tr><th>#</th><th>名称</th><th></th></tr>
+        {loop $manage $row}
+        <tr><td>$row[id]</td><td>$row[name]</td><td><code><a href="#" class="" data-type="upt" data-id="$row[id]">编辑</a></code> <code><a href="#" class="" data-type="del" data-id="$row[id]">删除</a></code></td></tr>
+        {/loop}
+    </table>
+  </div>
+  <div class="tab-pane" id="add">
+  		<h3>新增版块</h3>
+      <div class="form-group">
+        <label for="inputName">名称</label>
+        <input type="text" class="form-control" id="inputName" placeholder="Enter account" autocomplete="off">
+        <span class="help-block">限制在4-20个字符内</span>
+      </div>
+      
+      <button type="submit" class="btn btn-primary" id="buttonAddManage">新增版块</button>
+  </div>
+  <div class="tab-pane" id="upt">
+  		<h3>修改版块</h3>
+        <input type="hidden" value="0" id="inputUptId" />
+       <div class="form-group">
+        <label for="inputUptName">名称</label>
+        <input type="text" class="form-control" id="inputUptName" placeholder="Enter account" autocomplete="off">
+        <span class="help-block">限制在4-20个字符内</span>
+      </div>
+      <button type="submit" class="btn btn-primary" id="buttonUptmanage">更新版块</button>
+  </div>
+</div>
+{template common/js.html}
+<script type="text/javascript" src="/js/adminx/sys_manage.js"></script>
+{subtemplate common/foot_common.html}
