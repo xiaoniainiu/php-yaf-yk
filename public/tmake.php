@@ -26,7 +26,8 @@ if (!empty($argv)){
 	exit('only support cli mode');
 }
 
-if (strpos($table, '_')){
+if (strpos($table, '_') !== false){
+	
 	$path = explode('_', $table);
 	$file = array_pop($path);
 	$dir = implode('/', $path);
@@ -44,7 +45,7 @@ if (strpos($table, '_')){
 	mkfile('\yk\mysql\database', $table, PATH.'/models/'.$table.'.php', false);
 	
 	if ($app){
-		mkfile('\models\\'.$table, $table, PATH."$app/application/models/".$table.'.php', $app);
+		mkfile('\models\\'.$table, $table, PATH."/application/$app/models/".$table.'.php', $app);
 	}
 }
 

@@ -14,14 +14,14 @@ class auth{
 	
 	public static function encode($str, $key = null, $ttl = 0){
 		if ($key == null) {
-			$key = g('config/security/authkey');
+			$key = g('_config/security/authkey');
 		}
 		return self::rc4($str, self::$_encode, $key, $ttl);
 	}
 	
 	public static function decode($str, $key = null){
 		if ($key == null) {
-			$key = g('config/security/authkey');
+			$key = g('_config/security/authkey');
 		}
 		return self::rc4($str, self::$_decode, $key);
 	}
